@@ -15,42 +15,41 @@ body {
     min-height: 100vh
 }
 
-
 img {
     max-width: 100%;
 }
 
+/*-------------- Navbar --------------*/
+
+.navbar-collapse {
+    flex-grow: 0 !important;
+}
 
 .navbar-brand {
     max-width: 300px;
     padding-left: 20px;
 }
 
-
 .navbar a {
     font-size: 1.5em;
     font-weight: bold;
 }
 
-
 .navbar a:hover {
     color: rgb(204, 0, 102);
 }
 
+/*-------------- Header Pages --------------*/
 
-.container-card {
-    padding-top: 20px;
-    justify-content: center;
+.header-pages {
+    background-color: rgb(180, 178, 178);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.card {
-    margin: 20px;
 
-}
-
-.card-body {
-    padding-bottom: 10px;
-}
+/*-------------- Cards --------------*/
 
 .card-img-top {
     width: 100%;
@@ -58,26 +57,84 @@ img {
     object-fit: cover;
 }
 
-.card-body span {
-    position: relative;
-    float: left;
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-.card-body a {
-    position: relative;
-    float: right;
+.card .img-fluid {
+    height: 100%;
+    object-fit: cover;
 }
+
+/*-------------- Footer --------------*/
 
 footer {
-    margin-top: auto;
+    margin-top: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2vh;
 }
 
-footer .navbar {
-    justify-content: start;
+.social-media {
+    font-size: 1.5em;
 }
 
-footer .navbar a {
+.social-media a {
     color: black;
     margin: 10px;
-    padding-left: 20px;
+}
+
+.social-media a:hover {
+    color: rgb(204, 0, 102);
+}
+
+
+/*-------------- Stats --------------*/
+.stats {
+    width: 100%;
+    empty-cells: show;
+}
+
+.stats td,
+.stats th {
+    justify-content: space-between;
+}
+
+.stats tr:nth-child(even) {
+    background-color: rgb(146, 138, 138);
+}
+
+.stats tr:hover {
+    background-color: rgba(204, 0, 102, 0.250);
+}
+
+.stats th {
+    background-color: #495057;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+/*-------------- Categories Checkbox --------------*/
+
+.categories-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.container-single-event {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
