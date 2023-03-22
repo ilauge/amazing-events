@@ -1,63 +1,27 @@
-let pastEvent = (data.events).filter(event => {
-  return event.date < data.currentDate;
-});
+renderCards(pastEvents);
 
-let eventsData = pastEvent.map(event => {
+function renderSearch() {
+  let selectedCategory = getSelectedCategory();
+  let textInput = searchInput.value.toLowerCase();
+  let results = pastEvents.filter(event => event.name.toLowerCase().includes(textInput) || event.description.toLowerCase().includes(textInput));
 
-  return createCard(event)
-})
+  if (selectedCategory.length > 0) {
+    results = results.filter(event => {
+      let categories = events.filter(event => selectedCategory.includes(event.category));
 
-let eventsHTML = eventsData.join("");
+      // let filter = false;
+      // categories.forEach(category => {
+      //       if (selectedCategory.includes(category)) {
+      //             filter = true;
+      //       }
+      //   })
+      // return filter
 
-document.getElementById("container-events").innerHTML = eventsHTML
-
-
-// Checkbox -------------------------------------
-
-let checkboxes = document.querySelectorAll('input[type=checkbox]')
-
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function () {
-    let selectedCategoryHTML = "";
-    selectedCategory =
-      Array.from(checkboxes)
-        .filter(i => i.checked)
-        .map(i => i.value)
-
-    // console.log(selectedCategory);
-
-    if (selectedCategory.length > 0) {
-      pastEvent.filter(event => selectedCategory.includes(event.category)).forEach((event) => {
-        selectedCategoryHTML += createCard(event);
-        document.getElementById("container-events").innerHTML = selectedCategoryHTML;
-      });
-    } else {
-      document.getElementById("container-events").innerHTML = eventsHTML;
-    };
-  })
-});
-
-
-// Search -------------------------------------
-let searchButton = document.getElementById("search-button");
-document.addEventListener('submit', (e) => {
-  e.preventDefault();
-});
-
-let searchInput = document.getElementById("search-input");
-document.addEventListener("input", (e) => {
-  e.preventDefault();
-  let searched = e.target.value.toLowerCase();
-
-  let searchedHTML = "";
-
-  if (searched.length > 0) {
-    pastEvent.filter(event => event.name.toLowerCase().includes(searched) || event.description.toLowerCase().includes(searched))
-
-      .forEach((event) => {
-        searchedHTML += createCard(event);
-        document.getElementById("container-events").innerHTML = searchedHTML;
-      });
+      return selectedCategory.some(category => categories.includes(category));
+    })
   }
-  else { document.getElementById("container-events").innerHTML = eventsHTML; }
-});
+
+  renderCards(results);
+  console.log(selectedCategory);
+  console.log(textInput);
+}

@@ -12,11 +12,20 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh
+    min-height: 100vh;
+    background-color: black !important;
+    color: white !important;
 }
 
 img {
     max-width: 100%;
+}
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*-------------- Navbar --------------*/
@@ -39,10 +48,15 @@ img {
     color: rgb(204, 0, 102);
 }
 
+.navbar a.active {
+    color: rgb(204, 0, 102) !important;
+}
+
 /*-------------- Header Pages --------------*/
 
 .header-pages {
-    background-color: rgb(180, 178, 178);
+    color: white;
+    background-color: rgb(204, 0, 102);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,6 +64,14 @@ img {
 
 
 /*-------------- Cards --------------*/
+
+#container-events {
+    color: black !important;
+}
+
+.container-single-event {
+    color: black !important;
+}
 
 .card-img-top {
     width: 100%;
@@ -72,6 +94,8 @@ img {
 /*-------------- Footer --------------*/
 
 footer {
+    background-color: rgb(204, 0, 102) !important;
+    color: white;
     margin-top: auto !important;
     display: flex;
     align-items: center;
@@ -84,39 +108,25 @@ footer {
 }
 
 .social-media a {
-    color: black;
+    color: white;
     margin: 10px;
 }
 
 .social-media a:hover {
-    color: rgb(204, 0, 102);
+    color: black;
 }
 
 
 /*-------------- Stats --------------*/
-.stats {
-    width: 100%;
-    empty-cells: show;
-}
-
-.stats td,
-.stats th {
+.stats-container {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
 }
 
-.stats tr:nth-child(even) {
-    background-color: rgb(146, 138, 138);
-}
-
-.stats tr:hover {
-    background-color: rgba(204, 0, 102, 0.250);
-}
-
-.stats th {
-    background-color: #495057;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
+.table {
+    background-color: white;
 }
 
 
@@ -125,7 +135,14 @@ footer {
 .categories {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+#categories-checkbox {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 
 }

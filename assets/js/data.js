@@ -1,3 +1,31 @@
+
+let urlApi =  "https://mindhub-xj03.onrender.com/api/amazing";
+let events = [];
+let pastEvents = [];
+
+
+async function getEventsData() {
+  try {
+    const response = await fetch(urlApi);
+ //   console.log(response);
+    const data = await response.json();
+//    console.log(data.events[1]);
+    localStorage.setItem('localData', JSON.stringify(data))
+  }
+  catch (error) {
+//    console.log(error)
+  }
+}
+
+getEventsData()
+
+let data = JSON.parse(localStorage.getItem('localData'));
+
+
+
+
+
+/*
 let data = {
   "currentDate": "2022-01-01",
   "events": [
@@ -80,8 +108,8 @@ let data = {
       "date":"2022-01-22",
       "description":"The only concert of the most emblematic band in the world.",
       "category":"Music Concert",
-      "place":"Room A"
-      ,"capacity":138000,
+      "place":"Room A",
+      "capacity":138000,
       "estimate":138000,
       "price":150
     },
@@ -170,4 +198,4 @@ let data = {
       "price":250
     }
   ]
-};    
+};    */
